@@ -1,29 +1,34 @@
 import React from 'react'
-import { ViewBase, View, Text, SafeAreaView, TouchableOpacity } from 'react-native'
-import { RiHome3Line as WhiteHouse } from 'react-icons/ri'
-import { IconType } from 'react-icons'
+import { ViewBase, View, Text, SafeAreaView, TouchableOpacity, Image, ImageSourcePropType } from 'react-native'
+
+const NavData = [
+  {
+    text: 'Home',
+    image: require('../assets/icons/home.png')
+  }
+]
 
 const NavBar = () => {
   return (
     <View>
-      <Icon icon={WhiteHouse} text='Home' />
+      {NavData.map(item => (
+        <Icon text={item.text} image={item.image} />
+      ))}
     </View>
   )
 }
 
 interface IconProps {
-  icon: IconType,
-  text: string
+  text: string,
+  image: ImageSourcePropType
 }
 
-export const Icon: React.FC<IconProps> = ({ icon, text }) => {
+const Icon: React.FC<IconProps> = ({ text, image }) => {
   return (
-    <TouchableOpacity>
-      <View>
-        <WhiteHouse />
-      </View>
-    </TouchableOpacity>
+    <Image 
+      source={image}
+    />
   )
 }
 
-export default NavBar;
+export default NavBar
