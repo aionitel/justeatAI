@@ -1,13 +1,12 @@
-import React from 'react'
-import { View, SafeAreaView, Text, TouchableOpacity } from 'react-native'
-import NavBar from './src/components/nav/NavBar'
+import { StyleSheet, Text, View } from 'react-native';
+import NavBar from './components/NavBar';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <View>
       <NavBar />
     </View>
-  )
+  );
 }
 
 export default App
