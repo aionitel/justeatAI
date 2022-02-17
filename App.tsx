@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, SafeAreaView, Text } from 'react-native'
+import { View, SafeAreaView, Text, TouchableOpacity } from 'react-native'
 import NavBar from './src/components/nav/NavBar'
 
 const App: React.FC = () => {
