@@ -5,7 +5,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../../pages/Home';
 import Camera from '../../pages/Camera';
 import Journal from '../../pages/Journal';
-import Octicons from 'react-native-vector-icons/Octicons' // home icon
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons' // camera icon
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5' // star wars book
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons' // notepad icon
@@ -14,7 +13,7 @@ const Tab = createBottomTabNavigator();
 
 const NavBar = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
       <NavigationContainer>
         <Tab.Navigator 
           initialRouteName='Home'
@@ -23,14 +22,14 @@ const NavBar = () => {
             tabBarShowLabel: false,
             tabBarHideOnKeyboard: true,
             tabBarStyle: {
-              height: 70
+              height: 100
             }
           }}
         >
           <Tab.Screen name='Home' component={Home} 
             options={({ navigation }) => ({
               tabBarIcon: ({ size, focused, color}) => (
-                <NavIcon path='Home' iconLib={Octicons} iconName='home' size={size} navigation={navigation} />
+                <NavIcon path='Home' iconLib={MaterialCommunityIcons} iconName='home-variant-outline' size={size + 10} navigation={navigation} />
               )
             })}
           />
@@ -44,13 +43,13 @@ const NavBar = () => {
           <Tab.Screen name='Journal' component={Journal} 
             options={({ navigation }) => ({
               tabBarIcon: ({ size, focused, color}) => (
-                <NavIcon path='Journal' iconLib={FontAwesome5} iconName='book' size={size} navigation={navigation} />
+                <NavIcon path='Journal' iconLib={FontAwesome5} iconName='journal-whills' size={size} navigation={navigation} />
               )
             })}
           />
         </Tab.Navigator>
       </NavigationContainer>
-    </SafeAreaView>
+    </View>
   )
 }
 

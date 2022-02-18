@@ -1,11 +1,11 @@
 import React from 'react'
-import { ViewBase, View, Text } from 'react-native'
+import { ViewBase, View, Text, ScrollView } from 'react-native'
 
 const Home = () => {
   return (
-    <View>
+    <ScrollView>
       <Text>Home</Text>
-    </View>
+    </ScrollView>
   )
 }
 
