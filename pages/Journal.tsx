@@ -4,7 +4,7 @@ import ProfileCard from '../components/profile/ProfileCard'
 
 const Journal = () => {
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: 'white'}}>
       <ProfileCard />
     </ScrollView>
   )
