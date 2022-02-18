@@ -8,6 +8,9 @@ import Journal from '../../pages/Journal';
 import Octicons from 'react-native-vector-icons/Octicons'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+
+// TODO: make navbar work with touchable opacity 
 
 const Tab = createBottomTabNavigator();
 
@@ -20,40 +23,43 @@ const NavBar = () => {
           screenOptions={{ 
             headerShown: false,
             tabBarShowLabel: false,
+            tabBarHideOnKeyboard: true,
+            tabBarStyle: {
+              height: 70
+            }
           }}
         >
           <Tab.Screen name='Home' component={Home} 
-            options={{
+            options={({ navigation }) => ({
               tabBarIcon: ({ size, focused, color}) => (
-                <Octicons name='home' size={size + 10} />
-
+                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                  <Octicons name='home' size={size + 10} />
+                </TouchableOpacity>
               )
-            }}
+            })}
           />
           <Tab.Screen name='Camera' component={Camera} 
-            options={{
+            options={({ navigation }) => ({
               tabBarIcon: ({ size, focused, color}) => (
-                <SimpleLineIcons name='camera' size={size} />
-
+                <TouchableOpacity onPress={() => navigation.navigate('Camera')}>
+                  <SimpleLineIcons name='camera' size={size + 10} />
+                </TouchableOpacity>
               )
-            }}
+            })}
           />
           <Tab.Screen name='Journal' component={Journal} 
-            options={{
+            options={({ navigation }) => ({
               tabBarIcon: ({ size, focused, color}) => (
-                <FontAwesome5 name='journal-whills' size={size} />
+                <TouchableOpacity onPress={() => navigation.navigate('Journal')}>
+                  <MaterialCommunityIcons name='book-account-outline' size={size + 10} />
+                </TouchableOpacity>
               )
-            }}
+            })}
           />
         </Tab.Navigator>
       </NavigationContainer>
     </SafeAreaView>
   )
-}
-
-interface IconProps {
-  image: ImageSourcePropType
-  size: number
 }
 
 export default NavBar
