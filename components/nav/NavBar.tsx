@@ -5,12 +5,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../../pages/Home';
 import Camera from '../../pages/Camera';
 import Journal from '../../pages/Journal';
-import Octicons from 'react-native-vector-icons/Octicons'
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-
-// TODO: make navbar work with touchable opacity 
+import Octicons from 'react-native-vector-icons/Octicons' // home icon
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons' // camera icon
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5' // star wars book
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons' // notepad icon
 
 const Tab = createBottomTabNavigator();
 
@@ -32,33 +30,45 @@ const NavBar = () => {
           <Tab.Screen name='Home' component={Home} 
             options={({ navigation }) => ({
               tabBarIcon: ({ size, focused, color}) => (
-                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                  <Octicons name='home' size={size + 10} />
-                </TouchableOpacity>
+                <NavIcon path='Home' iconLib={Octicons} iconName='home' size={size} navigation={navigation} />
               )
             })}
           />
           <Tab.Screen name='Camera' component={Camera} 
             options={({ navigation }) => ({
               tabBarIcon: ({ size, focused, color}) => (
-                <TouchableOpacity onPress={() => navigation.navigate('Camera')}>
-                  <SimpleLineIcons name='camera' size={size + 10} />
-                </TouchableOpacity>
+                <NavIcon path='Camera' iconLib={SimpleLineIcons} iconName='camera' size={size} navigation={navigation} />
               )
             })}
           />
           <Tab.Screen name='Journal' component={Journal} 
             options={({ navigation }) => ({
               tabBarIcon: ({ size, focused, color}) => (
-                <TouchableOpacity onPress={() => navigation.navigate('Journal')}>
-                  <MaterialCommunityIcons name='book-account-outline' size={size + 10} />
-                </TouchableOpacity>
+                <NavIcon path='Journal' iconLib={FontAwesome5} iconName='book' size={size} navigation={navigation} />
               )
             })}
           />
         </Tab.Navigator>
       </NavigationContainer>
     </SafeAreaView>
+  )
+}
+
+interface NavIconProps {
+  path: string,
+  iconLib: any,
+  iconName: string,
+  size: number,
+  navigation: any
+}
+
+const NavIcon: React.FC<NavIconProps> = ({ path, iconLib, iconName, size, navigation }) => {
+  const SpecificIconLib = iconLib;
+
+  return (
+    <TouchableOpacity onPress={() => navigation.navigate(path)}>
+      <SpecificIconLib name={iconName} size={size + 12} />
+    </TouchableOpacity>
   )
 }
 
