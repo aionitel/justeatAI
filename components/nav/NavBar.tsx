@@ -1,11 +1,12 @@
 import React, { ComponentType } from 'react'
-import { ViewBase, View, Text, SafeAreaView, Image, ImageSourcePropType } from 'react-native'
+import { ViewBase, View, Text, SafeAreaView, Image, ImageSourcePropType, TouchableOpacity } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../../pages/Home';
 import Camera from '../../pages/Camera';
 import Journal from '../../pages/Journal';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import Octicons from 'react-native-vector-icons/Octicons'
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 
 const Tab = createBottomTabNavigator();
 
@@ -23,21 +24,23 @@ const NavBar = () => {
           <Tab.Screen name='Home' component={Home} 
             options={{
               tabBarIcon: ({ size, focused, color}) => (
-                <Icon size={size} image={require('../../assets/icons/home.png')} />
+                <Octicons name='home' size={size + 10} />
+
               )
             }}
           />
           <Tab.Screen name='Camera' component={Camera} 
             options={{
               tabBarIcon: ({ size, focused, color}) => (
-                <Icon size={size} image={require('../../assets/icons/camera.png')} />
+                <SimpleLineIcons name='camera' size={size} />
+
               )
             }}
           />
           <Tab.Screen name='Journal' component={Journal} 
             options={{
               tabBarIcon: ({ size, focused, color}) => (
-                <Icon size={size} image={require('../../assets/icons/journal.png')} />
+                <Icon name='home' size={size} />
               )
             }}
           />
@@ -50,19 +53,6 @@ const NavBar = () => {
 interface IconProps {
   image: ImageSourcePropType
   size: number
-}
-
-const Icon: React.FC<IconProps> = ({ image, size }) => {
-  return (
-    <TouchableOpacity>
-      <View>
-        <Image source={image} style={{
-          height: size,
-          width: size
-        }} />
-      </View>
-    </TouchableOpacity>
-  )
 }
 
 export default NavBar
