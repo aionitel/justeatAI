@@ -1,11 +1,12 @@
 import React from 'react'
-import { ViewBase, View, Text } from 'react-native'
+import { ViewBase, View, Text, SafeAreaView, ScrollView } from 'react-native'
+import ProfileCard from '../components/profile/ProfileCard'
 
 const Journal = () => {
   return (
-    <View>
-      <Text>Journal</Text>
-    </View>
+    <ScrollView>
+      <ProfileCard />
+    </ScrollView>
   )
 }
 
