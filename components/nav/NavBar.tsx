@@ -7,6 +7,7 @@ import Camera from '../../pages/Camera';
 import Journal from '../../pages/Journal';
 import Octicons from 'react-native-vector-icons/Octicons'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 const Tab = createBottomTabNavigator();
 
@@ -40,7 +41,7 @@ const NavBar = () => {
           <Tab.Screen name='Journal' component={Journal} 
             options={{
               tabBarIcon: ({ size, focused, color}) => (
-                <Icon name='home' size={size} />
+                <FontAwesome5 name='journal-whills' size={size} />
               )
             }}
           />
