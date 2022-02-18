@@ -1,9 +1,10 @@
 import React from 'react'
-import { ViewBase, View } from 'react-native'
+import { ViewBase, View, Text} from 'react-native'
+
 const Settings = () => {
   return (
     <View>
-      
+      <Text>Settings</Text>
     </View>
   )
 }

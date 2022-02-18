@@ -1,10 +1,10 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import NavBar from './components/NavBar';
+import NavBar from './components/nav/NavBar';
 
 const App = () => {
   return (
-    <View style={{ flex: 1, justifyContent: 'flex-end'}}>
+    <View style={{ flex: 1 }}>
       <NavBar />
     </View>
   );
