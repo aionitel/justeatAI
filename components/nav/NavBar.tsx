@@ -6,8 +6,8 @@ import Home from '../../pages/Home';
 import Camera from '../../pages/Camera';
 import Journal from '../../pages/Journal';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons' // camera icon
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5' // star wars book
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons' // notepad icon
+import Feather from 'react-native-vector-icons/Feather'
 
 const Tab = createBottomTabNavigator();
 
@@ -43,7 +43,7 @@ const NavBar = () => {
           <Tab.Screen name='Journal' component={Journal} 
             options={({ navigation }) => ({
               tabBarIcon: ({ size, focused, color}) => (
-                <NavIcon path='Journal' iconLib={FontAwesome5} iconName='journal-whills' size={size} navigation={navigation} />
+                <NavIcon path='Journal' iconLib={Feather} iconName='bookmark' size={size} navigation={navigation} />
               )
             })}
           />
