@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 
 const Camera = () => {
   return (
-    <View>
+    <View style={{ backgroundColor: 'white' }}>
       <Text>Camera</Text>
     </View>
   )

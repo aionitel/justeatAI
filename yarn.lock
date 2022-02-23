@@ -4534,6 +4534,11 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
+react-native-animated-nav-tab-bar@^3.1.7:
+  version "3.1.7"
+  resolved "https://registry.yarnpkg.com/react-native-animated-nav-tab-bar/-/react-native-animated-nav-tab-bar-3.1.7.tgz#e86e35378cef77f0a9d5d2b4f3b3489112eb574f"
+  integrity sha512-uHsvVakcXBrWEvBZ4hPxpQ0AdoHRNXJO4qmySTQNKMkqKmmur9EWhhxRnp5uAD5FlaOzt2SdCuGSvEbZLrbEpw==
+
 react-native-codegen@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/react-native-codegen/-/react-native-codegen-0.0.6.tgz#b3173faa879cf71bfade8d030f9c4698388f6909"
