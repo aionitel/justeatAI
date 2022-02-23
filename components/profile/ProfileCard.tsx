@@ -8,7 +8,17 @@ const ProfileCard = () => {
       borderBottomWidth: 1,
       backgroundColor: 'teal'
     }}>
-      <Text>P</Text>
+      <Image 
+        source={require('../../assets/images/pizzaGuy.png')} 
+        style={{
+          height: 150,
+          width: 150,
+          marginLeft: 30,
+          borderRadius: 80,
+          borderWidth: 1,
+          borderColor: 'black'
+        }}  
+      />
     </SafeAreaView>
   )
 }
