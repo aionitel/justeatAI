@@ -40,15 +40,16 @@ const NavBar = () => {
                   style={{ opacity: opacity }}
                   onPressIn={() => {opacity = 0.1}}
                   onPressOut={() => {opacity = 1}}
-                  size={30}
+                  size={32}
                 />
               )
             })}
             listeners={({}) => ({
               tabPress: e => {
                 Animated.spring(tabOffSetValue, {
-                  toValue: 4,
-                  useNativeDriver: true
+                  toValue: 8,
+                  useNativeDriver: true,
+                  speed: 15
                 }).start();
               }
             })}
@@ -61,15 +62,16 @@ const NavBar = () => {
                   style={{ opacity: opacity }}
                   onPressIn={() => {opacity = 0.1}}
                   onPressOut={() => {opacity = 1}}
-                  size={30}
+                  size={32}
                 />
               )
             })}
             listeners={({}) => ({
               tabPress: e => {
                 Animated.spring(tabOffSetValue, {
-                  toValue: 134,
-                  useNativeDriver: true
+                  toValue: 138,
+                  useNativeDriver: true,
+                  speed: 15
                 }).start();
               }
             })}
@@ -82,23 +84,24 @@ const NavBar = () => {
                   style={{ opacity: opacity }}
                   onPressIn={() => {opacity = 0.1}}
                   onPressOut={() => {opacity = 1}}
-                  size={30}
+                  size={32}
                 />
               )
             })}
             listeners={({}) => ({
               tabPress: e => {
                 Animated.spring(tabOffSetValue, {
-                  toValue: 265,
-                  useNativeDriver: true
+                  toValue: 270,
+                  useNativeDriver: true,
+                  speed: 15
                 }).start();
               }
             })}
           />
         </Tab.Navigator>
         <Animated.View style={{
-        width: 10,
-        height: 10,
+        width: 5,
+        height: 5,
         borderRadius: 20,
         backgroundColor: 'black',
         position: 'absolute',
