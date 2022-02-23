@@ -49,7 +49,8 @@ const NavBar = () => {
                 Animated.spring(tabOffSetValue, {
                   toValue: 8,
                   useNativeDriver: true,
-                  speed: 15
+                  speed: 15,
+                  bounciness: 5
                 }).start();
               }
             })}
@@ -71,7 +72,8 @@ const NavBar = () => {
                 Animated.spring(tabOffSetValue, {
                   toValue: 138,
                   useNativeDriver: true,
-                  speed: 15
+                  speed: 15,
+                  bounciness: 5
                 }).start();
               }
             })}
@@ -93,7 +95,8 @@ const NavBar = () => {
                 Animated.spring(tabOffSetValue, {
                   toValue: 270,
                   useNativeDriver: true,
-                  speed: 15
+                  speed: 15,
+                  bounciness: 5
                 }).start();
               }
             })}
