@@ -10,7 +10,7 @@ import Feather from 'react-native-vector-icons/Feather'
 
 const Tab = createBottomTabNavigator();
 
-let opacity = 1;
+let opacity: number = 0.1
 
 const NavBar = () => {
   const tabOffSetValue = useRef(new Animated.Value(0)).current;
@@ -29,76 +29,49 @@ const NavBar = () => {
               borderRadius: 30,
               overflow: 'hidden',
               position: 'absolute',
-            },
+            }
           }}
         >
           <Tab.Screen name='Home' component={Home} 
             options={({ navigation }) => ({
               tabBarIcon: ({ size }) => (
-                <Feather 
-                  name='home'
-                  style={{ opacity: opacity }}
-                  onPressIn={() => {opacity = 0.1}}
-                  onPressOut={() => {opacity = 1}}
-                  size={32}
+                <Icon 
+                  navigation={navigation}
+                  path='Home'
+                  iconName='home'
+                  iconLib={Feather}
+                  toValue={5}
+                  tabOffSetValue={tabOffSetValue}
                 />
               )
-            })}
-            listeners={({}) => ({
-              tabPress: e => {
-                Animated.spring(tabOffSetValue, {
-                  toValue: 8,
-                  useNativeDriver: true,
-                  speed: 15,
-                  bounciness: 5
-                }).start();
-              }
             })}
           />
-          <Tab.Screen name='Camera' component={Camera} 
+          <Tab.Screen name='Camera' component={Camera}
             options={({ navigation }) => ({
               tabBarIcon: ({ size }) => (
-                <SimpleLineIcons 
-                  name='camera'
-                  style={{ opacity: opacity }}
-                  onPressIn={() => {opacity = 0.1}}
-                  onPressOut={() => {opacity = 1}}
-                  size={32}
+                <Icon 
+                  navigation={navigation}
+                  path='Camera'
+                  iconName='camera'
+                  iconLib={SimpleLineIcons}
+                  toValue={138}
+                  tabOffSetValue={tabOffSetValue}
                 />
               )
-            })}
-            listeners={({}) => ({
-              tabPress: e => {
-                Animated.spring(tabOffSetValue, {
-                  toValue: 138,
-                  useNativeDriver: true,
-                  speed: 15,
-                  bounciness: 5
-                }).start();
-              }
             })}
           />
           <Tab.Screen name='Journal' component={Journal} 
             options={({ navigation }) => ({
               tabBarIcon: ({ size }) => (
-                <Feather 
-                  name='bookmark'
-                  style={{ opacity: opacity }}
-                  onPressIn={() => {opacity = 0.1}}
-                  onPressOut={() => {opacity = 1}}
-                  size={32}
+                <Icon 
+                  navigation={navigation}
+                  path='Journal'
+                  iconName='bookmark'
+                  iconLib={Feather}
+                  toValue={270}
+                  tabOffSetValue={tabOffSetValue}
                 />
               )
-            })}
-            listeners={({}) => ({
-              tabPress: e => {
-                Animated.spring(tabOffSetValue, {
-                  toValue: 270,
-                  useNativeDriver: true,
-                  speed: 15,
-                  bounciness: 5
-                }).start();
-              }
             })}
           />
         </Tab.Navigator>
@@ -116,6 +89,33 @@ const NavBar = () => {
       }} />
       </NavigationContainer>
     </View>
+  )
+}
+
+interface IconProps {
+  navigation: any,
+  path: string,
+  iconName: string,
+  iconLib: any,
+  toValue: number,
+  tabOffSetValue: Animated.Value
+}
+
+const Icon: React.FC<IconProps> = ({ navigation, path, iconName, iconLib, toValue, tabOffSetValue }) => {
+  const SpecificIconLib = iconLib;
+
+  return (
+    <TouchableOpacity onPress={() => {
+      navigation.navigate(path)
+      Animated.spring(tabOffSetValue, {
+        toValue,
+        useNativeDriver: true,
+        speed: 15,
+        bounciness: 5
+      }).start();      
+    }}>
+      <SpecificIconLib name={iconName} size={32} />
+    </TouchableOpacity>
   )
 }
 
