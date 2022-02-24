@@ -1,25 +1,53 @@
 import React from 'react'
 import { ViewBase, View, Text, TouchableOpacity, SafeAreaView, Image, ImageSourcePropType } from 'react-native'
+import { useRecoilState } from 'recoil'
+import calorieAtom from '../../state/atoms'
 
 const ProfileCard = () => {
+  const [calories, setCalories] = useRecoilState(calorieAtom)
+
   return (
     <SafeAreaView style={{
-      borderBottomColor: 'gainsboro',
-      borderBottomWidth: 1,
-      backgroundColor: 'lightblue'
+      backgroundColor: 'lightblue',
+      paddingBottom: 40,
+      height: 220,
+      borderRadius: 15,
     }}>
+      <ProfilePic calories={calories} />
+    </SafeAreaView>
+  )
+}
+
+interface ProfilePicProps {
+  calories: number
+}
+
+const ProfilePic: React.FC<ProfilePicProps> = ({ calories }) => {
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center'}}>
       <Image 
-        source={require('../../assets/images/pizzaGuy.png')} 
+        source={require('../../assets/images/astro_burger.png')} 
         style={{
-          height: 150,
-          width: 150,
-          marginLeft: 30,
+          height: 100,
+          width: 100,
+          marginLeft: 35,
+          marginTop: 25,
           borderRadius: 80,
-          borderWidth: 1,
-          borderColor: 'black'
+          borderWidth: 4,
+          borderColor: 'ghostwhite'
         }}  
       />
-    </SafeAreaView>
+      <TouchableOpacity
+        style={{
+          backgroundColor: 'white',
+          marginLeft: 20,
+          marginTop: 25,
+          borderRadius: 30
+        }}
+      >
+        <Text style={{ paddingHorizontal: 12, paddingVertical: 8, fontWeight: 'bold', }}>{calories} calories</Text>
+      </TouchableOpacity>
+    </View>
   )
 }
 

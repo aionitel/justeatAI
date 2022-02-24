@@ -6,7 +6,7 @@ const Profile: React.FC = () => {
   return (
     <>
       <ProfileCard />
-      <ScrollView>
+      <ScrollView style={{ backgroundColor: 'ghostwhite' }}>
         <Text>Hello</Text>
       </ScrollView>
     </>
