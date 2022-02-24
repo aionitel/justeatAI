@@ -3,7 +3,7 @@ import { ViewBase, View, Text, ScrollView } from 'react-native'
 
 const Home = () => {
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: 'white' }}>
       <Text>Home</Text>
     </ScrollView>
   )

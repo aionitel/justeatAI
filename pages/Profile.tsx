@@ -2,12 +2,15 @@ import React from 'react'
 import { ViewBase, View, Text, SafeAreaView, ScrollView } from 'react-native'
 import ProfileCard from '../components/profile/ProfileCard'
 
-const Journal = () => {
+const Profile: React.FC = () => {
   return (
-    <ScrollView style={{ backgroundColor: 'white'}}>
+    <>
       <ProfileCard />
-    </ScrollView>
+      <ScrollView>
+        <Text>Hello</Text>
+      </ScrollView>
+    </>
   )
 }
 
-export default Journal
+export default Profile

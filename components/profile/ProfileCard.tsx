@@ -6,7 +6,7 @@ const ProfileCard = () => {
     <SafeAreaView style={{
       borderBottomColor: 'gainsboro',
       borderBottomWidth: 1,
-      backgroundColor: 'teal'
+      backgroundColor: 'lightblue'
     }}>
       <Image 
         source={require('../../assets/images/pizzaGuy.png')} 

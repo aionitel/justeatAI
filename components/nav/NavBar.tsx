@@ -1,16 +1,15 @@
-import React, { ComponentType, useRef } from 'react'
-import { ViewBase, View, Text, SafeAreaView, Image, ImageSourcePropType, TouchableOpacity, Animated, Dimensions } from 'react-native'
+import React, { useRef } from 'react'
+import { View, TouchableOpacity, Animated } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../../pages/Home';
 import Camera from '../../pages/Camera';
-import Journal from '../../pages/Journal';
+import Profile from '../../pages/Profile';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import Feather from 'react-native-vector-icons/Feather'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const Tab = createBottomTabNavigator();
-
-let opacity: number = 0.1
 
 const NavBar = () => {
   const tabOffSetValue = useRef(new Animated.Value(0)).current;
@@ -40,7 +39,7 @@ const NavBar = () => {
                   path='Home'
                   iconName='home'
                   iconLib={Feather}
-                  toValue={5}
+                  toValue={0}
                   tabOffSetValue={tabOffSetValue}
                 />
               )
@@ -54,21 +53,21 @@ const NavBar = () => {
                   path='Camera'
                   iconName='camera'
                   iconLib={SimpleLineIcons}
-                  toValue={138}
+                  toValue={131}
                   tabOffSetValue={tabOffSetValue}
                 />
               )
             })}
           />
-          <Tab.Screen name='Journal' component={Journal} 
+          <Tab.Screen name='Profile' component={Profile} 
             options={({ navigation }) => ({
               tabBarIcon: ({ size }) => (
                 <Icon 
                   navigation={navigation}
-                  path='Journal'
-                  iconName='bookmark'
-                  iconLib={Feather}
-                  toValue={270}
+                  path='Profile'
+                  iconName='chart-bell-curve'
+                  iconLib={MaterialCommunityIcons}
+                  toValue={262}
                   tabOffSetValue={tabOffSetValue}
                 />
               )
@@ -82,7 +81,8 @@ const NavBar = () => {
         backgroundColor: 'black',
         position: 'absolute',
         bottom: 25,
-        left: 54,
+        left: 62,
+        opacity: 0.8,
         transform: [
           { translateX: tabOffSetValue }
         ]
