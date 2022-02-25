@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { View, TouchableOpacity, Animated } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -12,6 +12,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 const Tab = createBottomTabNavigator();
 
 const NavBar = () => {
+  const [currPage, setCurrPage] = useState('Home')
+
   const tabOffSetValue = useRef(new Animated.Value(0)).current;
 
   return (
@@ -98,7 +100,7 @@ interface IconProps {
   iconName: string,
   iconLib: any,
   toValue: number,
-  tabOffSetValue: Animated.Value
+  tabOffSetValue: Animated.Value,
 }
 
 const Icon: React.FC<IconProps> = ({ navigation, path, iconName, iconLib, toValue, tabOffSetValue }) => {

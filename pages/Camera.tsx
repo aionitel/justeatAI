@@ -1,10 +1,11 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
+import { Camera as PytorchCamera } from 'react-native-pytorch-core'
 
 const Camera = () => {
   return (
-    <View style={{ backgroundColor: 'white' }}>
-      <Text>Camera</Text>
+    <View>
+      <PytorchCamera />
     </View>
   )
 }

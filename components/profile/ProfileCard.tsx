@@ -2,6 +2,7 @@ import React from 'react'
 import { ViewBase, View, Text, TouchableOpacity, SafeAreaView, Image, ImageSourcePropType } from 'react-native'
 import { useRecoilState } from 'recoil'
 import calorieAtom from '../../state/atoms'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const ProfileCard = () => {
   const [calories, setCalories] = useRecoilState(calorieAtom)
@@ -46,6 +47,17 @@ const ProfilePic: React.FC<ProfilePicProps> = ({ calories }) => {
         }}
       >
         <Text style={{ paddingHorizontal: 12, paddingVertical: 8, fontWeight: 'bold', }}>{calories} calories</Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Ionicons 
+          name='settings-sharp' 
+          size={40}
+          style={{
+            color: 'white',
+            marginLeft: 50,
+            marginBottom: 75,
+          }}
+        />
       </TouchableOpacity>
     </View>
   )
