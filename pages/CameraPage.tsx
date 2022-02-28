@@ -14,14 +14,14 @@ const CameraPage = () => {
   }, []);
 
   if (hasPermission === null) {
-    return <View />;
+    return <ScrollView />;
   }
   if (hasPermission === false) {
     return <Text>No access to camera</Text>;
   }
   return (
-    <ScrollView>
-      <Camera type={type}>
+    <View style={{ flex: 1 }}>
+      <Camera type={type} style={{ flex: 1 }}>
         <View>
           <TouchableOpacity
             onPress={() => {
@@ -35,7 +35,7 @@ const CameraPage = () => {
           </TouchableOpacity>
         </View>
       </Camera>
-    </ScrollView>
+    </View>
   );
 }
 
