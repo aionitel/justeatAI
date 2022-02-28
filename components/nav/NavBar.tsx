@@ -9,9 +9,9 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import Feather from 'react-native-vector-icons/Feather'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
 
-const NavBar = () => {
+const NavBar = ({ navigation }: any) => {
   const [currPage, setCurrPage] = useState('Home')
 
   const tabOffSetValue = useRef(new Animated.Value(0)).current;
@@ -30,10 +30,11 @@ const NavBar = () => {
               borderRadius: 30,
               overflow: 'hidden',
               position: 'absolute',
+              display: currPage === 'CameraPage' ? 'none' : 'flex'
             }
           }}
         >
-          <Tab.Screen name='Home' component={Home} 
+          <Tab.Screen name='Home' component={Home}
             options={({ navigation }) => ({
               tabBarIcon: ({ size }) => (
                 <Icon 
@@ -43,6 +44,7 @@ const NavBar = () => {
                   iconLib={Feather}
                   toValue={0}
                   tabOffSetValue={tabOffSetValue}
+                  setCurrPage={setCurrPage}
                 />
               )
             })}
@@ -57,11 +59,12 @@ const NavBar = () => {
                   iconLib={SimpleLineIcons}
                   toValue={131}
                   tabOffSetValue={tabOffSetValue}
+                  setCurrPage={setCurrPage}
                 />
               )
             })}
           />
-          <Tab.Screen name='Profile' component={Profile} 
+          <Tab.Screen name='Profile' component={Profile}
             options={({ navigation }) => ({
               tabBarIcon: ({ size }) => (
                 <Icon 
@@ -71,24 +74,26 @@ const NavBar = () => {
                   iconLib={MaterialCommunityIcons}
                   toValue={262}
                   tabOffSetValue={tabOffSetValue}
+                  setCurrPage={setCurrPage}
                 />
               )
             })}
           />
         </Tab.Navigator>
-        <Animated.View style={{
-        width: 5,
-        height: 5,
-        borderRadius: 20,
-        backgroundColor: 'black',
-        position: 'absolute',
-        bottom: 25,
-        left: 62,
-        opacity: 0.8,
-        transform: [
-          { translateX: tabOffSetValue }
-        ]
-      }} />
+          <Animated.View style={{
+          width: 5,
+          height: 5,
+          borderRadius: 20,
+          backgroundColor: 'black',
+          position: 'absolute',
+          bottom: 25,
+          left: 62,
+          opacity: 0.8,
+          transform: [
+            { translateX: tabOffSetValue }
+          ]
+        }} 
+        />
       </NavigationContainer>
     </View>
   )
@@ -101,9 +106,10 @@ interface IconProps {
   iconLib: any,
   toValue: number,
   tabOffSetValue: Animated.Value,
+  setCurrPage: React.Dispatch<React.SetStateAction<string>>
 }
 
-const Icon: React.FC<IconProps> = ({ navigation, path, iconName, iconLib, toValue, tabOffSetValue }) => {
+const Icon: React.FC<IconProps> = ({ navigation, path, iconName, iconLib, toValue, tabOffSetValue, setCurrPage }) => {
   const SpecificIconLib = iconLib;
 
   return (
@@ -114,7 +120,9 @@ const Icon: React.FC<IconProps> = ({ navigation, path, iconName, iconLib, toValu
         useNativeDriver: true,
         speed: 15,
         bounciness: 5
-      }).start();      
+      }).start();
+
+      setCurrPage(path)
     }}>
       <SpecificIconLib name={iconName} size={32} />
     </TouchableOpacity>
