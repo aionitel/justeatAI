@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Animated } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../../pages/Home';
-import Camera from '../../pages/Camera';
+import CameraPage from '../../pages/CameraPage';
 import Profile from '../../pages/Profile';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import Feather from 'react-native-vector-icons/Feather'
@@ -47,12 +47,12 @@ const NavBar = () => {
               )
             })}
           />
-          <Tab.Screen name='Camera' component={Camera}
+          <Tab.Screen name='CameraPage' component={CameraPage}
             options={({ navigation }) => ({
               tabBarIcon: ({ size }) => (
                 <Icon 
                   navigation={navigation}
-                  path='Camera'
+                  path='CameraPage'
                   iconName='camera'
                   iconLib={SimpleLineIcons}
                   toValue={131}
