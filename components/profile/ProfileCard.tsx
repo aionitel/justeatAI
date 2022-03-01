@@ -1,7 +1,7 @@
 import React from 'react'
 import { ViewBase, View, Text, TouchableOpacity, SafeAreaView, Image, ImageSourcePropType } from 'react-native'
 import { useRecoilState } from 'recoil'
-import calorieAtom from '../../state/atoms'
+import { calorieAtom } from '../../state/atoms'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const ProfileCard = () => {

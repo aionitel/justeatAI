@@ -8,11 +8,14 @@ import Profile from '../../pages/Profile';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import Feather from 'react-native-vector-icons/Feather'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { currPageAtom } from '../../state/atoms';
+import { SetterOrUpdater, useRecoilState } from 'recoil';
 
 const Tab = createBottomTabNavigator()
 
 const NavBar = ({ navigation }: any) => {
-  const [currPage, setCurrPage] = useState('Home')
+
+  const [currPage, setCurrPage] = useRecoilState(currPageAtom)
 
   const tabOffSetValue = useRef(new Animated.Value(0)).current;
 
@@ -106,7 +109,7 @@ interface IconProps {
   iconLib: any,
   toValue: number,
   tabOffSetValue: Animated.Value,
-  setCurrPage: React.Dispatch<React.SetStateAction<string>>
+  setCurrPage: SetterOrUpdater<string>
 }
 
 const Icon: React.FC<IconProps> = ({ navigation, path, iconName, iconLib, toValue, tabOffSetValue, setCurrPage }) => {
@@ -114,7 +117,9 @@ const Icon: React.FC<IconProps> = ({ navigation, path, iconName, iconLib, toValu
 
   return (
     <TouchableOpacity onPress={() => {
+
       navigation.navigate(path)
+
       Animated.spring(tabOffSetValue, {
         toValue,
         useNativeDriver: true,
@@ -123,6 +128,7 @@ const Icon: React.FC<IconProps> = ({ navigation, path, iconName, iconLib, toValu
       }).start();
 
       setCurrPage(path)
+
     }}>
       <SpecificIconLib name={iconName} size={32} />
     </TouchableOpacity>
