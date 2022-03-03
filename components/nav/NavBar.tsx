@@ -32,7 +32,6 @@ const NavBar = ({ navigation }: any) => {
             tabBarStyle: {
               height: 80,
               position: 'absolute',
-              display: currPage === 'CameraPage' ? 'none' : 'flex'
             }
           }}
         >
