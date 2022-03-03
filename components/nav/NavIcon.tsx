@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { View, TouchableOpacity, Animated } from 'react-native'
+import { View, TouchableOpacity, Animated, Text } from 'react-native'
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 
 interface NavIconProps {
@@ -14,6 +14,7 @@ interface NavIconProps {
 }
 
 const NavIcon: React.FC<NavIconProps> = ({ navigation, path, iconName, iconLib, tabOffSetValue, toValue, currPage, setCurrPage }) => {
+
   const SpecificIconLib = iconLib;
 
   return (
@@ -31,7 +32,7 @@ const NavIcon: React.FC<NavIconProps> = ({ navigation, path, iconName, iconLib, 
       setCurrPage(path)
 
     }}>
-      <SpecificIconLib name={iconName} size={25} style={{ color: toValue === 262 ? 'black' : 'gray'}} />
+      <SpecificIconLib name={iconName} size={25} style={{ color: path === currPage ? 'black' : 'gray' }} />
     </TouchableOpacity>
   )
 }
