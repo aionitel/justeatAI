@@ -9,7 +9,8 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import Feather from 'react-native-vector-icons/Feather'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { currPageAtom } from '../../state/atoms';
-import { SetterOrUpdater, useRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
+import NavIcon from './NavIcon';
 
 const Tab = createBottomTabNavigator()
 
@@ -38,7 +39,7 @@ const NavBar = ({ navigation }: any) => {
           <Tab.Screen name='Home' component={Home}
             options={({ navigation }) => ({
               tabBarIcon: ({ size }) => (
-                <Icon 
+                <NavIcon 
                   navigation={navigation}
                   path='Home'
                   iconName='home'
@@ -70,7 +71,7 @@ const NavBar = ({ navigation }: any) => {
           <Tab.Screen name='CameraPage' component={CameraPage}
             options={({ navigation }) => ({
               tabBarIcon: ({ size }) => (
-                <Icon 
+                <NavIcon 
                   navigation={navigation}
                   path='CameraPage'
                   iconName='camera'
@@ -102,7 +103,7 @@ const NavBar = ({ navigation }: any) => {
           <Tab.Screen name='Profile' component={Profile}
             options={({ navigation }) => ({
               tabBarIcon: ({ size }) => (
-                <Icon 
+                <NavIcon 
                   navigation={navigation}
                   path='Profile'
                   iconName='chart-bell-curve'
@@ -147,40 +148,6 @@ const NavBar = ({ navigation }: any) => {
         />
       </NavigationContainer>
     </View>
-  )
-}
-
-interface IconProps {
-  navigation: any,
-  path: string,
-  iconName: string,
-  iconLib: any,
-  toValue: number,
-  tabOffSetValue: any,
-  currPage: string,
-  setCurrPage: SetterOrUpdater<string>
-}
-
-const Icon: React.FC<IconProps> = ({ navigation, path, iconName, iconLib, tabOffSetValue, toValue, currPage, setCurrPage }) => {
-  const SpecificIconLib = iconLib;
-
-  return (
-    <TouchableOpacity onPress={() => {
-
-      Animated.spring(tabOffSetValue, {
-        toValue,
-        useNativeDriver: true,
-        speed: 15,
-        bounciness: 5
-      }).start();
-
-      navigation.navigate(path)
-
-      setCurrPage(path)
-
-    }}>
-      <SpecificIconLib name={iconName} size={25} style={{ color: toValue === 262 ? 'black' : 'gray'}} />
-    </TouchableOpacity>
   )
 }
 
