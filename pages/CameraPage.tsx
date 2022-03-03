@@ -4,6 +4,9 @@ import { Camera as ExpoCamera } from 'expo-camera';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { useRecoilState } from 'recoil';
 import { currPageAtom } from '../state/atoms';
+import { cameraWithTensors } from '@tensorflow/tfjs-react-native'
+
+const TensorCamera = cameraWithTensors(ExpoCamera)
 
 const CameraPage: React.FC<any> = ({ navigation }) => {
   const [hasPermission, setHasPermission] = useState<any>(null);
@@ -31,23 +34,23 @@ const CameraPage: React.FC<any> = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <ExpoCamera type={type} style={{ flex: 1 }}>
-        <View>
-          <TouchableOpacity
-            onPress={() => {
-              setType(
-                type === ExpoCamera.Constants.Type.back
-                  ? ExpoCamera.Constants.Type.front
-                  : ExpoCamera.Constants.Type.back
-              );
-            }}>
-            <Text> Flip </Text>
-          </TouchableOpacity>
-          <MaterialIcons name='arrow-back-ios' size={100} onPress={() => handleBack()}/>
-        </View>
-      </ExpoCamera>
+      <TensorCamera
+        // Standard Camera props
+        style={{ flex: 1 }}
+        type={ExpoCamera.Constants.Type.front}
+        // Tensor related props
+        cameraTextureHeight={1920}
+        cameraTextureWidth={1080}
+        resizeHeight={200}
+        resizeWidth={152}
+        resizeDepth={3}
+        autorender={true}
+      />
+      <View>
+        <MaterialIcons name='arrow-back-ios' size={50} onPress={() => handleBack()}/>
+      </View>
     </View>
-  );
+  )
 }
 
 export default CameraPage

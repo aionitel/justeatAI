@@ -29,9 +29,7 @@ const NavBar = ({ navigation }: any) => {
             tabBarShowLabel: false,
             tabBarHideOnKeyboard: true,
             tabBarStyle: {
-              height: 100,
-              borderRadius: 30,
-              overflow: 'hidden',
+              height: 80,
               position: 'absolute',
               display: currPage === 'CameraPage' ? 'none' : 'flex'
             }
@@ -47,9 +45,26 @@ const NavBar = ({ navigation }: any) => {
                   iconLib={Feather}
                   toValue={0}
                   tabOffSetValue={tabOffSetValue}
+                  currPage={currPage}
                   setCurrPage={setCurrPage}
                 />
               )
+            })}
+            listeners={({ navigation }) => ({
+              tabPress: e => {
+                e.preventDefault()
+
+                Animated.spring(tabOffSetValue, {
+                  toValue: 0,
+                  useNativeDriver: true,
+                  speed: 15,
+                  bounciness: 5
+                }).start();
+          
+                navigation.navigate('Home')
+          
+                setCurrPage('Home')
+              }
             })}
           />
           <Tab.Screen name='CameraPage' component={CameraPage}
@@ -62,9 +77,26 @@ const NavBar = ({ navigation }: any) => {
                   iconLib={SimpleLineIcons}
                   toValue={131}
                   tabOffSetValue={tabOffSetValue}
+                  currPage={currPage}
                   setCurrPage={setCurrPage}
                 />
               )
+            })}
+            listeners={({ navigation }) => ({
+              tabPress: e => {
+                e.preventDefault()
+
+                Animated.spring(tabOffSetValue, {
+                  toValue: 131,
+                  useNativeDriver: true,
+                  speed: 15,
+                  bounciness: 5
+                }).start();
+          
+                navigation.navigate('CameraPage')
+          
+                setCurrPage('CameraPage')
+              }
             })}
           />
           <Tab.Screen name='Profile' component={Profile}
@@ -77,9 +109,25 @@ const NavBar = ({ navigation }: any) => {
                   iconLib={MaterialCommunityIcons}
                   toValue={262}
                   tabOffSetValue={tabOffSetValue}
+                  currPage={currPage}
                   setCurrPage={setCurrPage}
                 />
               )
+            })}
+            listeners={({ navigation }) => ({
+              tabPress: e => {
+
+                Animated.spring(tabOffSetValue, {
+                  toValue: 262,
+                  useNativeDriver: true,
+                  speed: 15,
+                  bounciness: 5
+                }).start();
+          
+                navigation.navigate('Profile')
+          
+                setCurrPage('Profile')
+              }
             })}
           />
         </Tab.Navigator>
@@ -108,17 +156,16 @@ interface IconProps {
   iconName: string,
   iconLib: any,
   toValue: number,
-  tabOffSetValue: Animated.Value,
+  tabOffSetValue: any,
+  currPage: string,
   setCurrPage: SetterOrUpdater<string>
 }
 
-const Icon: React.FC<IconProps> = ({ navigation, path, iconName, iconLib, toValue, tabOffSetValue, setCurrPage }) => {
+const Icon: React.FC<IconProps> = ({ navigation, path, iconName, iconLib, tabOffSetValue, toValue, currPage, setCurrPage }) => {
   const SpecificIconLib = iconLib;
 
   return (
     <TouchableOpacity onPress={() => {
-
-      navigation.navigate(path)
 
       Animated.spring(tabOffSetValue, {
         toValue,
@@ -127,10 +174,12 @@ const Icon: React.FC<IconProps> = ({ navigation, path, iconName, iconLib, toValu
         bounciness: 5
       }).start();
 
+      navigation.navigate(path)
+
       setCurrPage(path)
 
     }}>
-      <SpecificIconLib name={iconName} size={32} />
+      <SpecificIconLib name={iconName} size={25} style={{ color: toValue === 262 ? 'black' : 'gray'}} />
     </TouchableOpacity>
   )
 }
