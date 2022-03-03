@@ -1,12 +1,14 @@
 import React from 'react'
 import { ViewBase, View, Text, ScrollView } from 'react-native'
 import NavBar from '../components/nav/NavBar'
+import Camera from '../components/camera/Camera'
+import ProfileCard from '../components/profile/ProfileCard'
 
 const Home = () => {
   return (
-    <ScrollView style={{ backgroundColor: 'ghostwhite' }}>
-      <Text>Home</Text>
-    </ScrollView>
+    <View style={{ backgroundColor: 'ghostwhite', flex: 1 }}>
+      <ProfileCard />
+    </View>
   )
 }
 

@@ -105,9 +105,9 @@ const NavBar = ({ navigation }: any) => {
                 <NavIcon 
                   navigation={navigation}
                   path='Profile'
-                  iconName='chart-bell-curve'
+                  iconName='scale-bathroom'
                   iconLib={MaterialCommunityIcons}
-                  toValue={262}
+                  toValue={260}
                   tabOffSetValue={tabOffSetValue}
                   currPage={currPage}
                   setCurrPage={setCurrPage}
@@ -118,7 +118,7 @@ const NavBar = ({ navigation }: any) => {
               tabPress: e => {
 
                 Animated.spring(tabOffSetValue, {
-                  toValue: 262,
+                  toValue: 260,
                   useNativeDriver: true,
                   speed: 15,
                   bounciness: 5

@@ -22,7 +22,7 @@ const Camera: React.FC<any> = ({ navigation }) => {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, height: 300 }}>
       <ExpoCamera 
         type={type}
       />
