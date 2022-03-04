@@ -105,7 +105,7 @@ const NavBar = ({ navigation }: any) => {
                 <NavIcon 
                   navigation={navigation}
                   path='Profile'
-                  iconName='scale-bathroom'
+                  iconName='bowl-mix-outline'
                   iconLib={MaterialCommunityIcons}
                   toValue={260}
                   tabOffSetValue={tabOffSetValue}
