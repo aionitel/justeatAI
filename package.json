@@ -20,7 +20,6 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
-    "react-native-animated-nav-tab-bar": "^3.1.7",
     "react-native-fs": "^2.19.0",
     "react-native-modal": "^13.0.1",
     "react-native-safe-area-context": "3.3.2",

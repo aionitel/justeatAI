@@ -3,47 +3,27 @@ import { ViewBase, View, Text, TouchableOpacity, SafeAreaView, Image, ImageSourc
 import { useRecoilState } from 'recoil'
 import { calorieAtom } from '../../state/atoms'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const ProfileCard = () => {
   const [calories, setCalories] = useRecoilState(calorieAtom)
 
   return (
     <SafeAreaView style={{
-      backgroundColor: 'lightblue',
-      paddingBottom: 40,
-      height: 220,
+      height: 50,
+      backgroundColor: 'lightgray',
       borderRadius: 15,
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between'
     }}>
       <ProfilePic calories={calories} />
-    </SafeAreaView>
-  )
-}
-
-interface ProfilePicProps {
-  calories: number
-}
-
-const ProfilePic: React.FC<ProfilePicProps> = ({ calories }) => {
-  return (
-    <View style={{ flexDirection: 'row', alignItems: 'center'}}>
-      <Image 
-        source={require('../../assets/images/astro_burger.png')} 
-        style={{
-          height: 100,
-          width: 100,
-          marginLeft: 35,
-          marginTop: 25,
-          borderRadius: 80,
-          borderWidth: 4,
-          borderColor: 'ghostwhite'
-        }}  
-      />
       <TouchableOpacity
         style={{
           backgroundColor: 'white',
-          marginLeft: 20,
-          marginTop: 25,
-          borderRadius: 30
+          borderRadius: 30,
+          marginRight: 20
         }}
       >
         <Text style={{ paddingHorizontal: 12, paddingVertical: 8, fontWeight: 'bold', }}>{calories} calories</Text>
@@ -54,10 +34,43 @@ const ProfilePic: React.FC<ProfilePicProps> = ({ calories }) => {
           size={40}
           style={{
             color: 'white',
-            marginLeft: 50,
-            marginBottom: 75,
+            marginBottom: 140,
+            marginRight: 25
           }}
         />
+      </TouchableOpacity>
+    </SafeAreaView>
+  )
+}
+
+interface ProfilePicProps {
+  calories: number
+}
+
+const ProfilePic: React.FC<ProfilePicProps> = ({ calories }) => {
+  return (
+    <View style={{ flexDirection: 'row', position: 'relative' }}>
+      <Image 
+        source={require('../../assets/images/astro_burger.png')} 
+        style={{
+          height: 100,
+          width: 100,
+          borderRadius: 80,
+          borderWidth: 4,
+          borderColor: 'ghostwhite',
+          marginLeft: 30
+        }}  
+      />
+      <TouchableOpacity style={{
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        marginLeft: 100,
+        backgroundColor: 'white',
+        padding: 5,
+        borderRadius: 30,
+      }}>
+        <MaterialCommunityIcons name='pencil' style={{ fontSize: 25 }}/>
       </TouchableOpacity>
     </View>
   )
