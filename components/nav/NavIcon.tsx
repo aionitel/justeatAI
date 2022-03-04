@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react'
 import { View, TouchableOpacity, Animated, Text } from 'react-native'
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 
+const animationSpeed = 15;
+
 interface NavIconProps {
   navigation: any,
   path: string,
@@ -23,7 +25,7 @@ const NavIcon: React.FC<NavIconProps> = ({ navigation, path, iconName, iconLib, 
       Animated.spring(tabOffSetValue, {
         toValue,
         useNativeDriver: true,
-        speed: 15,
+        speed: animationSpeed,
         bounciness: 5
       }).start();
 

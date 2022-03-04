@@ -7,15 +7,15 @@ interface MealCardProps {
   title: string,
 }
 
-const iconSize = 60;
+const iconSize = 40;
 
 const MealCard: React.FC<MealCardProps> = ({ image, title }) => {
   return (
-    <View style={{ flexDirection: 'row', marginTop: 25, paddingBottom: 25, marginHorizontal: 25, justifyContent: 'space-between', borderBottomWidth: 1, borderColor: 'gainsboro'}}>
+    <View style={{ flexDirection: 'row', marginTop: 30, paddingBottom: 25 , marginHorizontal: 30, justifyContent: 'space-between', borderBottomWidth: 1, borderColor: 'gainsboro'}}>
       <Image source={image} style={{ height: iconSize, width: iconSize }}/>
       <Text style={{ marginRight: 135, marginTop: 5, fontWeight: 'bold'}}>{title}</Text>
       <TouchableOpacity style={{ }}>
-        <AntDesign name='pluscircle' size={50} />
+        <AntDesign name='pluscircle' size={40} />
       </TouchableOpacity>
     </View>
   )

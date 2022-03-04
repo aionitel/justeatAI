@@ -5,14 +5,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../../pages/Home';
 import CameraPage from '../../pages/CameraPage';
 import Profile from '../../pages/Profile';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
-import Feather from 'react-native-vector-icons/Feather'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { currPageAtom } from '../../state/atoms';
 import { useRecoilState } from 'recoil';
 import NavIcon from './NavIcon';
 
 const Tab = createBottomTabNavigator()
+
+const animationSpeed = 15;
 
 const NavBar = ({ navigation }: any) => {
 
@@ -41,8 +41,8 @@ const NavBar = ({ navigation }: any) => {
                 <NavIcon 
                   navigation={navigation}
                   path='Home'
-                  iconName='home'
-                  iconLib={Feather}
+                  iconName='home-variant'
+                  iconLib={MaterialCommunityIcons}
                   toValue={0}
                   tabOffSetValue={tabOffSetValue}
                   currPage={currPage}
@@ -57,7 +57,7 @@ const NavBar = ({ navigation }: any) => {
                 Animated.spring(tabOffSetValue, {
                   toValue: 0,
                   useNativeDriver: true,
-                  speed: 15,
+                  speed: animationSpeed,
                   bounciness: 5
                 }).start();
           
@@ -74,7 +74,7 @@ const NavBar = ({ navigation }: any) => {
                   navigation={navigation}
                   path='CameraPage'
                   iconName='camera'
-                  iconLib={SimpleLineIcons}
+                  iconLib={MaterialCommunityIcons}
                   toValue={131}
                   tabOffSetValue={tabOffSetValue}
                   currPage={currPage}
@@ -89,7 +89,7 @@ const NavBar = ({ navigation }: any) => {
                 Animated.spring(tabOffSetValue, {
                   toValue: 131,
                   useNativeDriver: true,
-                  speed: 15,
+                  speed: animationSpeed,
                   bounciness: 5
                 }).start();
           
@@ -105,7 +105,7 @@ const NavBar = ({ navigation }: any) => {
                 <NavIcon 
                   navigation={navigation}
                   path='Profile'
-                  iconName='bowl-mix-outline'
+                  iconName='chef-hat'
                   iconLib={MaterialCommunityIcons}
                   toValue={260}
                   tabOffSetValue={tabOffSetValue}
@@ -120,7 +120,7 @@ const NavBar = ({ navigation }: any) => {
                 Animated.spring(tabOffSetValue, {
                   toValue: 260,
                   useNativeDriver: true,
-                  speed: 15,
+                  speed: animationSpeed,
                   bounciness: 5
                 }).start();
           

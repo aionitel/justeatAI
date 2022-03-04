@@ -2,8 +2,8 @@ import React from 'react'
 import { ViewBase, View, Text, ScrollView } from 'react-native'
 import NavBar from '../components/nav/NavBar'
 import Camera from '../components/camera/Camera'
-import ProfileCard from '../components/profile/ProfileCard'
-import MealCard from '../components/profile/MealCard'
+import ProfileCard from '../components/home/ProfileCard'
+import MealCard from '../components/home/MealCard'
 
 const Home = () => {
   return (
