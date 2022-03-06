@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../../pages/Home';
 import CameraPage from '../../pages/CameraPage';
-import Profile from '../../pages/Profile';
+import Recipes from '../../pages/Recipes';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { currPageAtom } from '../../state/atoms';
 import { useRecoilState } from 'recoil';
@@ -32,6 +32,7 @@ const NavBar = ({ navigation }: any) => {
             tabBarStyle: {
               height: 80,
               position: 'absolute',
+              backgroundColor: 'white'
             }
           }}
         >
@@ -99,12 +100,12 @@ const NavBar = ({ navigation }: any) => {
               }
             })}
           />
-          <Tab.Screen name='Profile' component={Profile}
+          <Tab.Screen name='Recipes' component={Recipes}
             options={({ navigation }) => ({
               tabBarIcon: ({ size }) => (
                 <NavIcon 
                   navigation={navigation}
-                  path='Profile'
+                  path='Recipes'
                   iconName='chef-hat'
                   iconLib={MaterialCommunityIcons}
                   toValue={260}
@@ -124,9 +125,9 @@ const NavBar = ({ navigation }: any) => {
                   bounciness: 5
                 }).start();
           
-                navigation.navigate('Profile')
+                navigation.navigate('Recipes')
           
-                setCurrPage('Profile')
+                setCurrPage('Recipes')
               }
             })}
           />

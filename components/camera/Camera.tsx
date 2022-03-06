@@ -27,7 +27,7 @@ const Camera: React.FC<any> = ({ navigation }) => {
         type={type}
       />
       <View>
-        <MaterialIcons name='arrow-back-ios' size={50} />
+        <MaterialIcons name='arrow-back-ios' size={50} onPress={() => navigation.navigate('Recipes')}/>
       </View>
     </View>
   )

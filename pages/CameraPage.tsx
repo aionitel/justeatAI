@@ -22,7 +22,7 @@ const CameraPage: React.FC<any> = ({ navigation }) => {
         <View style={{ marginTop: 20 }}>
           <Button title='close modal' onPress={() => toggleModal()} />
         </View>
-        <Camera />
+        <Camera navigation={navigation} />
       </Modal>
       <Button title='open modal' onPress={() => toggleModal()} />
     </SafeAreaView>
