@@ -33,7 +33,6 @@ const NavBar = ({ navigation }: any) => {
               height: 80,
               position: 'absolute',
               backgroundColor: 'white',
-              display: currPage === 'CameraPage' ? 'none' : 'flex'
             }
           }}
         >
@@ -142,7 +141,6 @@ const NavBar = ({ navigation }: any) => {
           bottom: 25,
           left: 62,
           opacity: 0.8,
-          display: currPage === 'CameraPage' ? 'none' : 'flex',
           transform: [
             { translateX: tabOffSetValue }
           ]

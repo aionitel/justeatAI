@@ -20,6 +20,10 @@ const Camera: React.FC<any> = ({ navigation }) => {
     return <Text>No access to camera</Text>;
   }
 
+  const takePicture = async () => {
+
+  }
+
   return (
     <View style={{ flex: 1, }}>
       <ExpoCamera style={{ flex: 1 }} type={type}>

@@ -7,5 +7,10 @@ export const calorieAtom = atom({
 
 export const currPageAtom = atom({
   key: 'currPage',
-  default: 'Home'
+  default: 'Home' as string
+})
+
+export const predictionAtom = atom({
+  key: 'currPrediction',
+  default: null as string | null
 })
