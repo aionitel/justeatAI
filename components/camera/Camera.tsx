@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
-import { ViewBase, View, Text, Animated } from "react-native";
-import { Camera as ExpoCamera } from 'expo-camera'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import React, { useState, useEffect, useRef } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Button, SafeAreaView } from 'react-native';
+import { Camera as ExpoCamera } from 'expo-camera';
 
 const Camera: React.FC<any> = ({ navigation }) => {
   const [hasPermission, setHasPermission] = useState<any>(null);
@@ -22,15 +21,24 @@ const Camera: React.FC<any> = ({ navigation }) => {
   }
 
   return (
-    <View style={{ flex: 1, height: 300 }}>
-      <ExpoCamera 
-        type={type}
-      />
-      <View>
-        <MaterialIcons name='arrow-back-ios' size={50} onPress={() => navigation.navigate('Recipes')}/>
-      </View>
+    <View style={{ flex: 1, }}>
+      <ExpoCamera style={{ flex: 1 }} type={type}>
+        <View style={{ flex: 1 }}>
+          <TouchableOpacity
+            style={{ flex: 1, marginTop: 50, marginLeft: 50 }}
+            onPress={() => {
+              setType(
+                type === ExpoCamera.Constants.Type.back
+                  ? ExpoCamera.Constants.Type.front
+                  : ExpoCamera.Constants.Type.back
+              );
+            }}>
+            <Text style={{ flex: 1 }}> Flip </Text>
+          </TouchableOpacity>
+        </View>
+      </ExpoCamera>
     </View>
   )
 }
 
-export default Camera
+export default Camera 

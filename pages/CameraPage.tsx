@@ -1,30 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Button, SafeAreaView } from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { useRecoilState } from 'recoil';
 import { currPageAtom } from '../state/atoms';
-import Camera from '../components/camera/Camera'
 import Modal from 'react-native-modal'
+import Camera from '../components/camera/Camera';
 
 const CameraPage: React.FC<any> = ({ navigation }) => {
-  const [modalVisible, setModalVisible] = useState(false)
-
-  const toggleModal = () => {
-    setModalVisible(!modalVisible)
-  }
+  const [modalVisible, setModalVisible] = useState<boolean>(false)
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <Modal
-        isVisible={modalVisible}
-        backdropColor='white'
-        backdropOpacity={1}
-      >
-        <View style={{ marginTop: 20 }}>
-          <Button title='close modal' onPress={() => toggleModal()} />
-        </View>
-        <Camera navigation={navigation} />
+    <SafeAreaView style={{ flex: 1, }}>
+      <Modal style={{ flex: 1 }} isVisible={modalVisible}>
+        <Button title='Close Modal' onPress={() => setModalVisible(false)} />
+        <Camera />
       </Modal>
-      <Button title='open modal' onPress={() => toggleModal()} />
+      <Button title='Open modal' onPress={() => setModalVisible(true)} />
     </SafeAreaView>
   )
 }
