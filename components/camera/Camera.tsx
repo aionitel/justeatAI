@@ -28,9 +28,14 @@ const Camera: React.FC<any> = ({ navigation }) => {
   const takePicture = async () => {
     const options = { quality: 0.2, base64: true, skipProcessing: false }
 
-    const { uri: photo } = await camera.takePictureAsync(options)
+    const { uri, height, width, base64 } = await camera.takePictureAsync(options)
 
-    setPhoto(photo)
+    setPhoto({
+      uri,
+      height,
+      width,
+      base64
+    })
   }
 
   return (

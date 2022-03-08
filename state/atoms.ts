@@ -15,7 +15,14 @@ export const predictionAtom = atom({
   default: null as string | null
 })
 
+interface PhotoAtom {
+  uri: string,
+  height: number,
+  width: number,
+  base64: any
+}
+
 export const photoAtom = atom({
   key: 'currPhoto',
-  default: '' as string | null
+  default: {} as PhotoAtom
 })
