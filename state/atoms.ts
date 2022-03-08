@@ -14,3 +14,8 @@ export const predictionAtom = atom({
   key: 'currPrediction',
   default: null as string | null
 })
+
+export const photoAtom = atom({
+  key: 'currPhoto',
+  default: '' as string | null
+})

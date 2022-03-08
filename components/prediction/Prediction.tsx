@@ -4,7 +4,7 @@ import { View, Text, SafeAreaView, Button } from 'react-native'
 const Prediction: React.FC = () => {
   return (
     <View>
-      Predictions Page
+      <Text>Predictions Page</Text>
     </View>
   )
 }
