@@ -32,7 +32,7 @@ const NavBar = ({ navigation }: any) => {
             tabBarStyle: {
               height: 80,
               position: 'absolute',
-              backgroundColor: 'white',
+              backgroundColor: 'black',
             }
           }}
         >
@@ -136,7 +136,7 @@ const NavBar = ({ navigation }: any) => {
           width: 5,
           height: 5,
           borderRadius: 20,
-          backgroundColor: 'black',
+          backgroundColor: 'white',
           position: 'absolute',
           bottom: 25,
           left: 62,

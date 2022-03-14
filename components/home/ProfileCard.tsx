@@ -11,7 +11,7 @@ const ProfileCard = () => {
   return (
     <SafeAreaView style={{
       height: 50,
-      backgroundColor: 'lightgray',
+      backgroundColor: 'darkgray',
       borderRadius: 15,
       flex: 1,
       flexDirection: 'row',
@@ -21,19 +21,19 @@ const ProfileCard = () => {
       <ProfilePic calories={calories} />
       <TouchableOpacity
         style={{
-          backgroundColor: 'white',
+          backgroundColor: 'black',
           borderRadius: 30,
           marginRight: 20
         }}
       >
-        <Text style={{ paddingHorizontal: 12, paddingVertical: 8, fontWeight: 'bold', }}>{calories} calories</Text>
+        <Text style={{ paddingHorizontal: 12, paddingVertical: 8, fontWeight: 'bold', color: 'white' }}>{calories} calories</Text>
       </TouchableOpacity>
       <TouchableOpacity>
         <Ionicons 
           name='settings-sharp' 
           size={40}
           style={{
-            color: 'white',
+            color: 'black',
             marginBottom: 140,
             marginRight: 25
           }}
@@ -57,7 +57,7 @@ const ProfilePic: React.FC<ProfilePicProps> = ({ calories }) => {
           width: 100,
           borderRadius: 80,
           borderWidth: 4,
-          borderColor: 'ghostwhite',
+          borderColor: 'black',
           marginLeft: 30
         }}  
       />
@@ -66,11 +66,11 @@ const ProfilePic: React.FC<ProfilePicProps> = ({ calories }) => {
         bottom: 0,
         left: 0,
         marginLeft: 100,
-        backgroundColor: 'white',
+        backgroundColor: 'black',
         padding: 5,
         borderRadius: 30,
       }}>
-        <MaterialCommunityIcons name='pencil' style={{ fontSize: 25 }}/>
+        <MaterialCommunityIcons name='pencil' style={{ fontSize: 25, color: 'white' }}/>
       </TouchableOpacity>
     </View>
   )

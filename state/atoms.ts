@@ -24,5 +24,5 @@ interface PhotoAtom {
 
 export const photoAtom = atom({
   key: 'currPhoto',
-  default: {} as PhotoAtom
+  default: {} as PhotoAtom | null
 })
