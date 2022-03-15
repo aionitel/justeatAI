@@ -1,12 +1,24 @@
 import React from 'react'
 import { ViewBase, View, Text, TouchableOpacity, SafeAreaView, Image, ImageSourcePropType } from 'react-native'
 import { useRecoilState } from 'recoil'
-import { calorieAtom } from '../../state/atoms'
+import { calorieAtom, themeAtom } from '../../state/atoms'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import Modal from 'react-native-modal'
+import Settings from '../settings/Settings'
 
 const ProfileCard = () => {
   const [calories, setCalories] = useRecoilState(calorieAtom)
+
+  const [currTheme, setCurrTheme] = useRecoilState(themeAtom)
+
+  const switchTheme = () => {
+    if (currTheme === 'light') {
+      setCurrTheme('dark')
+    } else {
+      setCurrTheme('light')
+    }
+  }
 
   return (
     <SafeAreaView style={{
@@ -37,6 +49,7 @@ const ProfileCard = () => {
             marginBottom: 140,
             marginRight: 25
           }}
+          onPress={() => switchTheme()}
         />
       </TouchableOpacity>
     </SafeAreaView>
