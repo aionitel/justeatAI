@@ -29,5 +29,5 @@ export const photoAtom = atom({
 
 export const themeAtom = atom({
   key: 'currTheme',
-  default: 'light' as string
+  default: 'dark' as string
 })

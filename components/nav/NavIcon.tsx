@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { View, TouchableOpacity, Animated, Text } from 'react-native'
-import { SetterOrUpdater, useRecoilState } from 'recoil';
+import { SetterOrUpdater, useRecoilState, useRecoilValue } from 'recoil';
+import { themeAtom } from '../../state/atoms';
 
 const animationSpeed = 15;
 
@@ -16,6 +17,7 @@ interface NavIconProps {
 }
 
 const NavIcon: React.FC<NavIconProps> = ({ navigation, path, iconName, iconLib, tabOffSetValue, toValue, currPage, setCurrPage }) => {
+  const currTheme = useRecoilValue(themeAtom)
 
   const SpecificIconLib = iconLib;
 
@@ -34,7 +36,15 @@ const NavIcon: React.FC<NavIconProps> = ({ navigation, path, iconName, iconLib, 
       setCurrPage(path)
 
     }}>
-      <SpecificIconLib name={iconName} size={25} style={{ color: path === currPage ? 'black' : 'gray' }} />
+      <SpecificIconLib 
+        name={iconName} 
+        size={25}
+        style={{
+          color: currTheme === 'light' ?
+          path === currPage ? 'black' : 'gray' :
+          path === currPage ? 'white' : 'gray'
+        }}
+      />
     </TouchableOpacity>
   )
 }
