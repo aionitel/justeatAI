@@ -6,8 +6,8 @@ import Home from '../../pages/Home';
 import CameraPage from '../../pages/CameraPage';
 import Recipes from '../../pages/Recipes';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { currPageAtom } from '../../state/atoms';
-import { useRecoilState } from 'recoil';
+import { currPageAtom, themeAtom } from '../../state/atoms';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import NavIcon from './NavIcon';
 
 const Tab = createBottomTabNavigator()
@@ -15,7 +15,7 @@ const Tab = createBottomTabNavigator()
 const animationSpeed = 15;
 
 const NavBar = ({ navigation }: any) => {
-
+  const currTheme = useRecoilValue(themeAtom)
   const [currPage, setCurrPage] = useRecoilState(currPageAtom)
 
   const tabOffSetValue = useRef(new Animated.Value(0)).current;
@@ -32,7 +32,7 @@ const NavBar = ({ navigation }: any) => {
             tabBarStyle: {
               height: 80,
               position: 'absolute',
-              backgroundColor: 'black',
+              backgroundColor: currTheme === 'light' ? 'white' : 'dark'
             }
           }}
         >
@@ -136,7 +136,7 @@ const NavBar = ({ navigation }: any) => {
           width: 5,
           height: 5,
           borderRadius: 20,
-          backgroundColor: 'white',
+          backgroundColor: 'black',
           position: 'absolute',
           bottom: 25,
           left: 62,

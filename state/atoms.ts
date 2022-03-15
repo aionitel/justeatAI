@@ -26,3 +26,8 @@ export const photoAtom = atom({
   key: 'currPhoto',
   default: {} as PhotoAtom | null
 })
+
+export const themeAtom = atom({
+  key: 'currTheme',
+  default: 'light' as string
+})

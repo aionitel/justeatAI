@@ -34,7 +34,7 @@ const NavIcon: React.FC<NavIconProps> = ({ navigation, path, iconName, iconLib, 
       setCurrPage(path)
 
     }}>
-      <SpecificIconLib name={iconName} size={25} style={{ color: path === currPage ? 'white' : 'gray' }} />
+      <SpecificIconLib name={iconName} size={25} style={{ color: path === currPage ? 'black' : 'gray' }} />
     </TouchableOpacity>
   )
 }
