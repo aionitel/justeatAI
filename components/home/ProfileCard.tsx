@@ -23,22 +23,22 @@ const ProfileCard = () => {
   return (
     <SafeAreaView style={{
       height: 50,
-      backgroundColor: 'teal',
+      backgroundColor: currTheme === 'dark' ? 'gray' : 'skyblue',
       borderRadius: 15,
       flex: 1,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between'
     }}>
-      <ProfilePic calories={calories} />
+      <ProfilePic calories={calories} currTheme={currTheme} />
       <TouchableOpacity
         style={{
-          backgroundColor: 'white',
+          backgroundColor: currTheme === 'dark' ? 'dimgray' : 'white',
           borderRadius: 30,
           marginRight: 20
         }}
       >
-        <Text style={{ paddingHorizontal: 12, paddingVertical: 8, fontWeight: 'bold', color: 'black' }}>{calories} calories</Text>
+        <Text style={{ paddingHorizontal: 12, paddingVertical: 8, fontWeight: 'bold', color: currTheme === 'dark' ? 'white' : 'black' }}>{calories} calories</Text>
       </TouchableOpacity>
       <TouchableOpacity>
         <Ionicons 
@@ -57,10 +57,11 @@ const ProfileCard = () => {
 }
 
 interface ProfilePicProps {
-  calories: number
+  calories: number,
+  currTheme: string
 }
 
-const ProfilePic: React.FC<ProfilePicProps> = ({ calories }) => {
+const ProfilePic: React.FC<ProfilePicProps> = ({ calories, currTheme }) => {
   return (
     <View style={{ flexDirection: 'row', position: 'relative' }}>
       <Image 
@@ -70,7 +71,7 @@ const ProfilePic: React.FC<ProfilePicProps> = ({ calories }) => {
           width: 100,
           borderRadius: 80,
           borderWidth: 4,
-          borderColor: 'white',
+          borderColor: currTheme === 'dark' ? 'dimgray' : 'white',
           marginLeft: 30
         }}  
       />
@@ -79,11 +80,11 @@ const ProfilePic: React.FC<ProfilePicProps> = ({ calories }) => {
         bottom: 0,
         left: 0,
         marginLeft: 100,
-        backgroundColor: 'white',
+        backgroundColor: currTheme === 'dark' ? 'dimgray' : 'white',
         padding: 5,
         borderRadius: 30,
       }}>
-        <MaterialCommunityIcons name='pencil' style={{ fontSize: 25, color: 'black' }}/>
+        <MaterialCommunityIcons name='pencil' style={{ fontSize: 25, color: currTheme === 'dark' ? 'white' : 'black' }}/>
       </TouchableOpacity>
     </View>
   )

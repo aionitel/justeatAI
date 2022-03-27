@@ -4,10 +4,14 @@ import NavBar from '../components/nav/NavBar'
 import Camera from '../components/camera/Camera'
 import ProfileCard from '../components/home/ProfileCard'
 import MealCard from '../components/home/MealCard'
+import { themeAtom } from '../state/atoms'
+import { useRecoilValue } from 'recoil'
 
 const Home = () => {
+  const currTheme = useRecoilValue(themeAtom)
+
   return (
-    <View style={{ backgroundColor: 'white', flex: 1 }}>
+    <View style={{ backgroundColor: currTheme === 'dark' ? 'black' : 'white', flex: 1 }}>
       <ProfileCard />
       <ScrollView>
         <MealCard image={require('../assets/images/coffee.png')} title='Breakfast' />
