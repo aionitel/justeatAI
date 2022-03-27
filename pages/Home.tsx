@@ -7,6 +7,7 @@ import MealCard from '../components/home/MealCard'
 import { themeAtom } from '../state/atoms'
 import { useRecoilValue } from 'recoil'
 
+// Home page with calorie and user info
 const Home = () => {
   const currTheme = useRecoilValue(themeAtom)
 
